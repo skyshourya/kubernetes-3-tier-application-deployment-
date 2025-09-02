@@ -1,0 +1,36 @@
+#this file i got from the kubernetes document and made changes to it
+#(https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: three-tier
+  labels:
+    role: frontend
+    env: demo
+spec: 
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 25%
+  selector:
+    matchLabels: 
+      role: frontend
+  template:
+    metadata:
+      labels:
+        role: frontend
+    spec: 
+      imagePullSecrets:
+      - name: ecr-registry-secret
+      containers:
+      - name: frontend
+        image: 750389970384.dkr.ecr.ap-south-1.amazonaws.com/frontend-3teir:latest #(this the ecr url where i have pushed the image to)
+        imagePullPolicy: Always
+        env:
+          - name: REACT_APP_BACKEND_URL
+            value: "<url>" #<ALB url is what i have used as i dont have domain> 
+        ports:
+        - containerPort: 3000

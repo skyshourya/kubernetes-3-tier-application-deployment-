@@ -1,0 +1,15 @@
+#this i also got from kubernetes documentation   
+#(https://kubernetes.io/docs/concepts/services-networking/service/)
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: three-tier
+  name: mongodb-svc
+spec:
+  selector:
+    app: mongodb
+  ports:
+  - name: mongodb-svc
+    protocol: TCP
+    port: 27017
+    targetPort: 27017

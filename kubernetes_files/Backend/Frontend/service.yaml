@@ -1,0 +1,14 @@
+#for the service i have used the document of kubernetes and made the changes 
+#(https://kubernetes.io/docs/concepts/services-networking/service/)
+apiVersion: v1
+kind: Service
+metadata: 
+  name: frontend
+  namespace: three-tier
+spec:
+  ports:
+  - port: 3000
+    protocol: TCP
+  type: ClusterIP
+  selector:
+    role: frontend

@@ -1,0 +1,32 @@
+#this i got from the ingress section inside the kubernetes document 
+#(https://kubernetes.io/docs/concepts/services-networking/ingress/)
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mainlb
+  namespace: three-tier
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}]'
+spec:
+  ingressClassName: alb
+  rules:
+    - host: <ALB url i can use as i dont have a domain for myself>
+      http:
+        paths:
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: api
+                port:   
+                  number: 3500
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: frontend
+                port: 
+                  number: 3000
+      

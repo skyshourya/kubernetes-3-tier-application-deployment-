@@ -1,0 +1,14 @@
+#for this i have used 
+#(https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongo-volume-claim
+  namespace: three-tier
+spec: 
+  accessModes:  
+    - ReadWriteOnce
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 1Gi
