@@ -30,14 +30,16 @@ Each tier runs in its own container, and Kubernetes manages their deployment, sc
 
 ## 📂 Project Structure
 
-├── App_code/ # Application source code
-│ ├── frontend/ # Frontend code (UI)
-│ └── backend/ # Backend code (API)
-├── kubernetes_files/ # Kubernetes manifests
-│ ├── Backend/ # Backend Deployment & Service
-│ ├── Frontend/ # Frontend Deployment & Service (if present)
-│ └── Database/ # Database Deployment, Service, Secrets
-└── README.md # Project documentation
+```bash
+├── App_code/                # Application source code
+│   ├── frontend/            # Frontend code (UI)
+│   └── backend/             # Backend code (API)
+├── kubernetes_files/        # Kubernetes manifests
+│   ├── Backend/             # Backend Deployment & Service
+│   ├── Frontend/            # Frontend Deployment & Service (if present)
+│   └── Database/            # Database Deployment, Service, Secrets
+└── README.md                # Project documentation
+
 
 
 
