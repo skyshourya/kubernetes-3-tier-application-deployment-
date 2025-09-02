@@ -10,9 +10,9 @@ It’s designed as a practical example for learning how to containerize applicat
 
 The project consists of:
 
-- **Frontend** – A web interface for users (e.g., React or static HTML/JS).  
-- **Backend** – An API service (e.g., Node.js/Express) handling business logic.  
-- **Database** – A persistent data storage service (e.g., MongoDB or SQL).  
+- **Frontend** – A web interface for users (React).  
+- **Backend** – An API service (Node.js) handling business logic.  
+- **Database** – A persistent data storage service (MongoDB).  
 
 Each tier runs in its own container, and Kubernetes manages their deployment, scaling, and networking.
 
